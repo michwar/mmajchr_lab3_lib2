@@ -32,5 +32,9 @@ public class StreamCopier {
 		}
 		return read;
 	}
+	
+	public int getTotal() {
+		return total;
+	}
 
 }

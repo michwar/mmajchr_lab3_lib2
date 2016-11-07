@@ -1,6 +1,8 @@
 package lab3.lib2;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.MessageDigest;
@@ -51,8 +53,10 @@ public class Hash {
 		}
 	}
 	
-	public byte[] hash(File file) {
-		return null;
+	public byte[] hash(File file) throws FileNotFoundException, IOException {
+		try(FileInputStream fin = new FileInputStream(file)) {
+			return hash(fin);
+		}
 	}
 
 }

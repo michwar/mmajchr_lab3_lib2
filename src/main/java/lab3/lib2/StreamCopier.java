@@ -1,5 +1,6 @@
 package lab3.lib2;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -21,6 +22,15 @@ public class StreamCopier {
 
 	public StreamCopier(InputStream in, OutputStream out) {
 		this(in, out, STANDARD_BUFFER_SIZE);
+	}
+	
+	public int copyPart() throws IOException {
+		int read = in.read(buffer);
+		if(read > 0) {
+			out.write(buffer, 0, read);
+			total += read;
+		}
+		return read;
 	}
 
 }

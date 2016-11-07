@@ -3,6 +3,8 @@ package lab3.lib2;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -60,8 +62,12 @@ public class AES {
 		}
 	}
 	
-	public int encrypt(File src, File dst) {
-		return 0;
+	public int encrypt(File src, File dst) throws IOException {
+		try(FileInputStream fin = new FileInputStream(src)) {
+			try(FileOutputStream fout = new FileOutputStream(dst)) {
+				return encrypt(fin, fout);
+			}
+		}
 	}
 	
 	public int decrypt(File src, File dst) {

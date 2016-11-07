@@ -3,6 +3,7 @@ package lab3.lib2;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.security.Key;
 
 import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
@@ -11,6 +12,8 @@ import javax.crypto.CipherOutputStream;
 public class AES {
 	
 	public static final String ALGORITHM = "AES/CBC/PKCS5Padding";
+	
+	private Key key;
 
 	public int encrypt(InputStream in, OutputStream out) throws IOException {
 		try {

@@ -1,5 +1,7 @@
 package lab3.lib2;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -58,7 +60,17 @@ public class AES {
 	}
 	
 	public byte[] encrypt(byte[] bytes) {
-		return null;
+		try {
+			try(ByteArrayInputStream bin = new ByteArrayInputStream(bytes)) {
+				try(ByteArrayOutputStream bout = new ByteArrayOutputStream()) {
+					encrypt(bin, bout);
+					return bout.toByteArray();
+				}
+			}
+		} catch(IOException e) {
+			e.printStackTrace();
+			throw new RuntimeException("ByteArrays IOException", e);
+		}
 	}
 	
 	public byte[] decrypt(byte[] bytes) {

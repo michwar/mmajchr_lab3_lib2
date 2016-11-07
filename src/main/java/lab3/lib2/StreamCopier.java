@@ -11,7 +11,7 @@ public class StreamCopier {
 	private OutputStream out;
 	private int total;
 
-	public static int STANDARD_BUFFER_SIZE = 0x10000;
+	public static final int STANDARD_BUFFER_SIZE = 0x10000;
 
 	public StreamCopier(InputStream in, OutputStream out, int bufSize) {
 		super();

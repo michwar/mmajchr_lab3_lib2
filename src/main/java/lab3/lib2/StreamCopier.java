@@ -33,6 +33,11 @@ public class StreamCopier {
 		return read;
 	}
 	
+	public int copyAll() throws IOException {
+		while(copyPart() > 0);
+		return getTotal();
+	}
+	
 	public int getTotal() {
 		return total;
 	}

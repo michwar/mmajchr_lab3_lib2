@@ -1,5 +1,7 @@
 package lab3.lib2;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -30,8 +32,22 @@ public class Hash {
 		}
 	}
 	
-	public byte[] hash(InputStream in) {
-		return null;
+	public byte[] hash(InputStream in) throws IOException {
+		try {
+			MessageDigest md = (MessageDigest)this.md.clone();
+			byte[] buffer = new byte[4096];
+			for(;;) {
+				int read = in.read(buffer);
+				if(read < 0) {
+					break;
+				}
+				md.update(buffer, 0, read);
+			}
+			return md.digest();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+			throw new RuntimeException("Can't hash", e);
+		}
 	}
 
 }

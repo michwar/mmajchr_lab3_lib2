@@ -56,5 +56,13 @@ public class AES {
 			throw new RuntimeException("No AES support", e);
 		}
 	}
+	
+	public byte[] encrypt(byte[] bytes) {
+		return null;
+	}
+	
+	public byte[] decrypt(byte[] bytes) {
+		return null;
+	}
 
 }

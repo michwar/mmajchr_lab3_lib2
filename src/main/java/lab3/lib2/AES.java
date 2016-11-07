@@ -8,6 +8,7 @@ import java.security.Key;
 import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
+import javax.crypto.spec.SecretKeySpec;
 
 public class AES {
 	
@@ -17,6 +18,11 @@ public class AES {
 	
 	public void setKey(Key key) {
 		this.key = key;
+	}
+	
+	public void setKey(byte[] bkey) {
+		Key key = new SecretKeySpec(bkey, ALGORITHM);
+		setKey(key);
 	}
 
 	public int encrypt(InputStream in, OutputStream out) throws IOException {

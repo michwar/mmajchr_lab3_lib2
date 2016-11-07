@@ -74,7 +74,17 @@ public class AES {
 	}
 	
 	public byte[] decrypt(byte[] bytes) {
-		return null;
+		try {
+			try(ByteArrayInputStream bin = new ByteArrayInputStream(bytes)) {
+				try(ByteArrayOutputStream bout = new ByteArrayOutputStream()) {
+					decrypt(bin, bout);
+					return bout.toByteArray();
+				}
+			}
+		} catch(IOException e) {
+			e.printStackTrace();
+			throw new RuntimeException("ByteArrays IOException", e);
+		}
 	}
 
 }

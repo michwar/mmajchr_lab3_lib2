@@ -28,6 +28,7 @@ public class AES {
 	public int encrypt(InputStream in, OutputStream out) throws IOException {
 		try {
 			Cipher cipher = Cipher.getInstance(ALGORITHM);
+			cipher.init(Cipher.ENCRYPT_MODE, key);
 			try(CipherOutputStream cout = new CipherOutputStream(out, cipher)) {
 				StreamCopier copier = new StreamCopier(in, cout);
 				return copier.copyAll();

@@ -19,5 +19,9 @@ public class Hash {
 			throw new RuntimeException("No " + type + " support.", e);
 		}
 	}
+	
+	public byte[] hash(byte[] data) {
+		return null;
+	}
 
 }

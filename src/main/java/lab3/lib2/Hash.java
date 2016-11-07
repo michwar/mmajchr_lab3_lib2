@@ -21,7 +21,13 @@ public class Hash {
 	}
 	
 	public byte[] hash(byte[] data) {
-		return null;
+		try {
+			MessageDigest md = (MessageDigest)this.md.clone();
+			return md.digest(data);
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+			throw new RuntimeException("Can't hash", e);
+		}
 	}
 
 }

@@ -70,8 +70,12 @@ public class AES {
 		}
 	}
 	
-	public int decrypt(File src, File dst) {
-		return 0;
+	public int decrypt(File src, File dst) throws IOException {
+		try(FileInputStream fin = new FileInputStream(src)) {
+			try(FileOutputStream fout = new FileOutputStream(dst)) {
+				return decrypt(fin, fout);
+			}
+		}
 	}
 	
 	public byte[] encrypt(byte[] bytes) {

@@ -17,7 +17,8 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class AES {
 	
-	public static final String ALGORITHM = "AES/CBC/PKCS5Padding";
+	public static final String ALGORITHM = "AES/ECB/PKCS5Padding";
+	public static final String KEY_ALGO = "AES";
 	
 	private Key key;
 	
@@ -26,7 +27,7 @@ public class AES {
 	}
 	
 	public void setKey(byte[] bkey) {
-		Key key = new SecretKeySpec(bkey, ALGORITHM);
+		Key key = new SecretKeySpec(bkey, KEY_ALGO);
 		setKey(key);
 	}
 

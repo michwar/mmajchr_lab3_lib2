@@ -2,6 +2,7 @@ package lab3.lib2;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -57,6 +58,14 @@ public class AES {
 			e.printStackTrace();
 			throw new RuntimeException("No AES support", e);
 		}
+	}
+	
+	public int encrypt(File src, File dst) {
+		return 0;
+	}
+	
+	public int decrypt(File src, File dst) {
+		return 0;
 	}
 	
 	public byte[] encrypt(byte[] bytes) {

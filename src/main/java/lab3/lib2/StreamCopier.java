@@ -10,4 +10,11 @@ public class StreamCopier {
 	private OutputStream out;
 	private int total;
 
+	public StreamCopier(InputStream in, OutputStream out, int bufSize) {
+		super();
+		this.buffer = new byte[bufSize];
+		this.in = in;
+		this.out = out;
+	}
+
 }

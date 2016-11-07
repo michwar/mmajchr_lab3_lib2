@@ -1,5 +1,6 @@
 package lab3.lib2;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.MessageDigest;
@@ -48,6 +49,10 @@ public class Hash {
 			e.printStackTrace();
 			throw new RuntimeException("Can't hash", e);
 		}
+	}
+	
+	public byte[] hash(File file) {
+		return null;
 	}
 
 }

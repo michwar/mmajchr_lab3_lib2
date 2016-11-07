@@ -14,6 +14,10 @@ public class AES {
 	public static final String ALGORITHM = "AES/CBC/PKCS5Padding";
 	
 	private Key key;
+	
+	public void setKey(Key key) {
+		this.key = key;
+	}
 
 	public int encrypt(InputStream in, OutputStream out) throws IOException {
 		try {

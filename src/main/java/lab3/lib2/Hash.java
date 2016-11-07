@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class Hash {
 	
-	MessageDigest md;
+	private MessageDigest md;
 	
 	public Hash(String algorithm) throws NoSuchAlgorithmException {
 		this.md = MessageDigest.getInstance(algorithm);

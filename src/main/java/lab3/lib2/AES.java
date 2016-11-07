@@ -44,6 +44,7 @@ public class AES {
 	public int decrypt(InputStream in, OutputStream out) throws IOException {
 		try {
 			Cipher cipher = Cipher.getInstance(ALGORITHM);
+			cipher.init(Cipher.DECRYPT_MODE, key);
 			try(CipherInputStream cin = new CipherInputStream(in, cipher)) {
 				StreamCopier copier = new StreamCopier(cin, out);
 				return copier.copyAll();

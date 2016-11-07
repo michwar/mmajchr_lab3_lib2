@@ -29,5 +29,9 @@ public class Hash {
 			throw new RuntimeException("Can't hash", e);
 		}
 	}
+	
+	public byte[] hash(InputStream in) {
+		return null;
+	}
 
 }
